@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular is awesome</title>
+</head>
+<body ng-controller="PhoneListController as $ctrl">
+<ul>
+    <li ng-repeat="phone in $ctrl.phones">{{phone}}</li>
+</ul>
+<script src="node_modules/angular/angular.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>
