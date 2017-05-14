@@ -1,7 +1,19 @@
 angular.module('app', [])
-    .controller("PhoneListController", PhoneListController);
+    .controller("PhoneListController", PhoneListController)
+    .service('PhonesService', PhonesService);
 
 
-function PhoneListController() {
+function PhoneListController(PhonesService) {
+    this.add = function (model) {
+        PhonesService.add(model);
+    }
+}
+
+function PhonesService($q) {
     this.phones = ["Samsung", "IPhone", "Nokia"];
+}
+
+PhonesService.prototype.add = function (model) {
+    if (this.phones.indexOf(model) < 0)
+        this.phones.push(model)
 }

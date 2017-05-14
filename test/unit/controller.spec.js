@@ -1,9 +1,17 @@
-describe("Controllers", () => {
+chai.should();
+describe("PhoneListController", () => {
     beforeEach(module("app"));
-    it('should create a `phones` model with 3 phones', inject(function($controller) {
-        var scope = {};
-        var ctrl = $controller('PhoneListController', {$scope: scope});
+    it('should use PhonesService', inject(function ($controller) {
+        let callCounter = 0;
+        var PhonesService = {
+            add: function () {
+                callCounter++;
+            }
+        };
+        var ctrl = $controller('PhoneListController', {PhonesService});
 
-        ctrl.should.have.property('phones').which.length(3);
+        ctrl.add("Sony");
+        ctrl.add("Motorolla");
+        callCounter.should.be.equal(2);
     }));
 });

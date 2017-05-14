@@ -19,7 +19,7 @@ module.exports = function (config) {
             'node_modules/angular-mocks/angular-mocks.js',
             'node_modules/chai/chai.js',
             'src/**/*.js',
-            'test/**/*spec.js'
+            'test/unit/**/*spec.js'
         ],
 
 
