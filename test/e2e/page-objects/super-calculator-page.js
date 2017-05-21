@@ -1,37 +1,48 @@
-var SuperCalculatorPage = function() {
-    var self = this;
+class SuperCalculatorPage {
+    get url() {
+        return 'http://juliemr.github.io/protractor-demo/'
+    }
 
-    var url = 'http://juliemr.github.io/protractor-demo/';
+    get FirstNumber() {
+        return element(by.model('first'))
+    }
 
-    var firstNumber = element(by.model('first'));
-    var secondNumber = element(by.model('second'));
-    var goButton = element(by.id('gobutton'));
-    var latestCalculationResult = element(by.binding('latest'));
+    get SecondNumber() {
+        return element(by.model('second'))
+    }
 
-    self.get = function() {
-        browser.get(url);
-    };
+    get GoButton() {
+        return element(by.id('gobutton'))
+    }
 
-    self.setFirstNumber = function(number) {
-        firstNumber.sendKeys(number);
-    };
+    get LatestCalculationResult() {
+        return element(by.binding('latest'));
+    }
 
-    self.setSecondNumber = function(number) {
-        secondNumber.sendKeys(number);
-    };
+    setFirstNumber(number) {
+        this.FirstNumber.sendKeys(number);
+    }
 
-    self.selectSubstractAction = function() {
-        var operator = element(by.model('operator'));
+    setSecondNumber(number) {
+        this.SecondNumber.sendKeys(number);
+    }
+
+    selectSubstractAction() {
+        const operator = element(by.model('operator'));
         operator.$('[value="SUBTRACTION"]').click();
     }
 
-    self.go = function() {
-        goButton.click();
+    go() {
+        this.GoButton.click();
     }
 
-    self.getLatestResult = function() {
-        return latestCalculationResult.getText();
-    };
-};
+    getLatestResult() {
+        return this.LatestCalculationResult.getText();
+    }
 
+    get() {
+        browser.get(this.url);
+    }
+
+}
 module.exports = SuperCalculatorPage;
