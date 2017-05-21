@@ -4,6 +4,7 @@ angular.module('app', [])
 
 
 function PhoneListController(PhonesService) {
+    this.phonesList = PhonesService.list;
     this.add = function (model) {
         PhonesService.add(model);
     }

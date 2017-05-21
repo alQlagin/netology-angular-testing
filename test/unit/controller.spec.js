@@ -1,14 +1,17 @@
 chai.should();
 describe("PhoneListController", () => {
-    let ctrl;
-    let stub;
+    let ctrl, service;
     beforeEach(module("app"));
     beforeEach(inject(function ($controller, PhonesService) {
         ctrl = $controller('PhoneListController', {PhonesService});
-        stub = sinon.stub(PhonesService, 'add')
+        service = PhonesService;
     }));
-    it('should use PhonesService', inject(function ($controller, PhonesService) {
+    it('should add phone with PhonesService.add', () => {
+        const stub = sinon.stub(service, 'add')
         ctrl.add("Sony");
-        sinon.assert.calledOnce(stub)
-    }));
-});
+        sinon.assert.calledOnce(stub);
+    });
+    it('shoud have the same phone list which in PhoneService', ()=>{
+        chai.expect(ctrl.phonesList, service.list)
+    })
+})
