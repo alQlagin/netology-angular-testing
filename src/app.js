@@ -1,5 +1,8 @@
-angular.module('app', [])
+angular.module('app', ['app.controllers'])
+
+angular.module('app.controllers', ['app.services'])
     .controller("PhoneListController", PhoneListController)
+angular.module('app.services', [])
     .service('PhonesService', PhonesService);
 
 
