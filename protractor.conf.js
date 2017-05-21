@@ -15,5 +15,9 @@ module.exports.config = {
         reporter: "spec",
         slow: 10000,
         timeout: 10000,
+    },
+    onPrepare: () => {
+        const chai = require('chai');
+        chai.use(require('chai-as-promised'));
     }
 };
