@@ -6,8 +6,11 @@
 </head>
 <body ng-controller="PhoneListController as $ctrl">
 <ul>
-    <li ng-repeat="phone in $ctrl.phones">{{phone}}</li>
+    <li ng-repeat="phone in $ctrl.phonesList">{{phone}}</li>
 </ul>
+<form ng-submit="$ctrl.add($ctrl.newPhone)">
+    <input ng-model="$ctrl.newPhone"><button type="submit">Добавить</button>
+</form>
 <script src="node_modules/angular/angular.js"></script>
 <script src="src/app.js"></script>
 </body>

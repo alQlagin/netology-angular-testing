@@ -1,4 +1,3 @@
-chai.should();
 describe("App module", function () {
     let app;
     before(function () {
@@ -6,6 +5,6 @@ describe("App module", function () {
     });
 
     it("should be registered", function () {
-        app.should.not.to.be.equal(null);
+        chai.expect(app).not.equal(null);
     })
 });
