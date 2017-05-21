@@ -1,10 +1,10 @@
 describe("App module", function () {
-    let app;
+    let module;
     before(function () {
-        app = angular.module("app")
+        module = angular.module("app")
     });
 
     it("should be registered", function () {
-        chai.expect(app).not.equal(null);
+        chai.expect(module).not.equal(null);
     })
 });
