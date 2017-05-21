@@ -9,7 +9,7 @@ function PhoneListController(PhonesService) {
     }
 }
 
-function PhonesService($q) {
+function PhonesService() {
     this.phones = ["Samsung", "IPhone", "Nokia"];
 }
 
