@@ -1,24 +1,19 @@
-chai.should();
-
 describe('PhoneService', () => {
-    beforeEach(module("app"));
-
-    it('should have PhonesService', inject(function (PhonesService) {
-        PhonesService.should.not.be.null;
+    let service;
+    beforeEach(module("app.services"));
+    beforeEach(inject(PhonesService => {
+        service = PhonesService;
     }));
+    it('should have 3 initial phones', () => {
+        chai.expect(service.phones).length(3);
+    });
+    it('should add phone models', () => {
+        service.add('Sony');
+        chai.expect(service.phones).length(4);
+    });
 
-    it('should have 3 initial phones', inject(function (PhonesService) {
-        PhonesService.should.have.property('phones').which.length(3);
-    }))
-
-    it('should add phone models', inject(function (PhonesService) {
-        PhonesService.add('Sony')
-        PhonesService.should.have.property('phones').which.length(4);
-    }))
-
-
-    it('should not add phone models which already in list', inject(function (PhonesService) {
-        PhonesService.add(PhonesService.phones[0]);
-        PhonesService.should.have.property('phones').which.length(3);
-    }))
-})
+    it('should not add phone which already in list', () => {
+        service.add(service.phones[0]);
+        chai.expect(service.phones).length(3);
+    })
+});
