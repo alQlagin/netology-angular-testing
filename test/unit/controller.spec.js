@@ -16,9 +16,10 @@ describe("Phone controllers: ", () => {
             service = PhonesService;
         }));
         it('should add phone with PhonesService.add', () => {
-            const stub = sinon.stub(service, 'add');
-            ctrl.add("Sony");
+            const stub = sinon.stub(service, 'add').returns(['Sony']);
+            const result = ctrl.add("Sony");
             sinon.assert.calledOnce(stub);
+            chai.expect(result).length(1)
         });
     });
 });

@@ -12,7 +12,7 @@ function PhoneListController(PhonesService) {
 
 function PhoneFormController(PhonesService) {
     this.add = function (model) {
-        PhonesService.add(model);
+        return PhonesService.add(model);
     }
 }
 
