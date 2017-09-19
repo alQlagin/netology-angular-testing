@@ -1,16 +1,12 @@
 angular.module('app', ['app.controllers']);
 
 angular.module('app.controllers', ['app.services'])
-    .controller("PhoneListController", PhoneListController)
-    .controller("PhoneFormController", PhoneFormController);
+    .controller("PhoneController", PhoneController);
 angular.module('app.services', [])
     .service('PhonesService', PhonesService);
 
-function PhoneListController(PhonesService) {
+function PhoneController(PhonesService) {
     this.phonesList = PhonesService.phones;
-}
-
-function PhoneFormController(PhonesService) {
     this.add = function (model) {
         return PhonesService.add(model);
     }
