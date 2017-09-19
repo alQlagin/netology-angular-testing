@@ -10,15 +10,15 @@
   </style>
 </head>
 <body>
-<div ng-controller="PhoneListController as $ctrl">
+<div ng-controller="PhoneController as $ctrl">
   <ul>
     <li ng-repeat="phone in $ctrl.phonesList">{{phone}}</li>
   </ul>
+  <form ng-submit="$ctrl.add($ctrl.newPhone)">
+    <input ng-model="$ctrl.newPhone">
+    <button type="submit">Добавить</button>
+  </form>
 </div>
-<form ng-submit="$ctrl.add($ctrl.newPhone)" ng-controller="PhoneFormController as $ctrl">
-  <input ng-model="$ctrl.newPhone">
-  <button type="submit">Добавить</button>
-</form>
 <script src="node_modules/angular/angular.js"></script>
 <script src="src/app.js"></script>
 </body>

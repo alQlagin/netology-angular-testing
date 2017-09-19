@@ -14,7 +14,7 @@ describe('When sum two numbers', function() {
 
             goButton.click();
 
-            expect(sum.getText()).eventually.to.equal(11 + 22 + '');
+            expect(sum.getText()).eventually.to.equal((11 + 22).toString());
         });
 
         it('return sum of any three-digit numbers', function() {

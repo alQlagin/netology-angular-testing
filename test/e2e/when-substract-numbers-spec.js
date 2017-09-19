@@ -17,7 +17,7 @@ describe('When subscribe numbers', function() {
 
             calculator.go();
 
-            expect(calculator.getLatestResult()).eventually.to.equal(2 - 1 + '');
+            expect(calculator.getLatestResult()).eventually.to.equal((2 - 1).toString());
         });
     });
 });
